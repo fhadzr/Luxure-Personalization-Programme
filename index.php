@@ -5,9 +5,6 @@ if (!isset($_SESSION)) session_start();
 if (!isset($_SESSION['cart'])) {
   $_SESSION['cart'] = array();}
 
-
-// var_dump($_SESSION['cart']);
-// var_dump($_SESSION["valid_user"]);
 ?>
 
 <!DOCTYPE html>
