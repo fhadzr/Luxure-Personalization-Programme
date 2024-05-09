@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>About | Jim Outfitters</title>
+    <title>About | Luxure Personalization Programme</title>
 
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
@@ -18,10 +18,10 @@
     <div class="about">
       <div class="about-content">
         <div class="logo-strip">
-          <img src="images/banners/logo-banner.png" alt="">
+          <img src="images/banners/Logo-1.jpg" alt="">
         </div>
         <div class="about-us">
-          <em><h4>your ultimate destination for premium clothes.</h4></em>
+          <em><h4>your ultimate destination for premium apparel.</h4></em>
           <br><br><br><br><br>
           <div class="about-us-content">
             <div class="about-1-content">

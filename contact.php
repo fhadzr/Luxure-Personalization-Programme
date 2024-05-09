@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Contact | Jim Outfitters</title>
+    <title>Contact | Luxure Personalization Programme</title>
 
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
@@ -16,7 +16,7 @@
     </header>
     <div class="contact">
       <div class="logo-strip">
-        <img src="images/banners/logo-banner.png" alt="">
+        <img src="images/banners/Logo-2.png" alt="">
       </div>
       <div class="contact-content">
         <div class="contact-1">

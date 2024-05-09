@@ -10,7 +10,7 @@ if (!isset($_SESSION["valid_admin"])){
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title> Admin | Jim Outfitters</title>
+    <title> Admin | Luxure Personalization Programme</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet'>
