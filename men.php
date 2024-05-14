@@ -10,7 +10,7 @@ if (!isset($_SESSION['cart'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Men | Jim Outfitters</title>
+    <title>Men | Luxure Personalization Programme</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet'>
@@ -30,8 +30,9 @@ if (!isset($_SESSION['cart'])) {
       <!-- tab links -->
       <div class="tab">
         <button class="tablinks green-transparent-btn" onclick="openProducts(event, 'mall')" id="defaultOpen">ALL PRODUCTS</button>
-        <button class="tablinks green-transparent-btn" onclick="openProducts(event, 'mtops')">TOPS</button>
-        <button class="tablinks green-transparent-btn" onclick="openProducts(event, 'mbottoms')">BOTTOMS</button>
+        <button class="tablinks green-transparent-btn" onclick="openProducts(event, 'mhoodie')">HOODIE</button>
+        <button class="tablinks green-transparent-btn" onclick="openProducts(event, 'mcrewneck')">CREWNECK</button>
+        <button class="tablinks green-transparent-btn" onclick="openProducts(event, 'mlongsleeve')">LONGSLEEVE</button>
       </div>
       <!-- tab content -->
       <?php
@@ -45,17 +46,24 @@ if (!isset($_SESSION['cart'])) {
       include "filter.php";
 
       $sql = "SELECT product_id, img1, product_name, price from products
-      where (gender='men' AND (cat='pants' OR cat='shorts'))";
+      where (gender='men' AND cat='hoodie')";
       $result = mysqli_query($conn, $sql);
       $i=1;
-      echo'   <div id="mbottoms" class="tabcontent shop-content-grid">';
+      echo'   <div id="mhoodie" class="tabcontent shop-content-grid">';
       include "filter.php";
 
       $sql = "SELECT product_id, img1, product_name, price from products
-      where (gender='men' AND cat='top')";
+      where (gender='men' AND cat='crewneck')";
       $result = mysqli_query($conn, $sql);
       $i=1;
-      echo'   <div id="mtops" class="tabcontent shop-content-grid">';
+      echo'   <div id="mcrewneck" class="tabcontent shop-content-grid">';
+      include "filter.php";
+
+      $sql = "SELECT product_id, img1, product_name, price from products
+      where (gender='men' AND cat='longsleeve')";
+      $result = mysqli_query($conn, $sql);
+      $i=1;
+      echo'   <div id="mlongsleeve" class="tabcontent shop-content-grid">';
       include "filter.php";
       ?>
 

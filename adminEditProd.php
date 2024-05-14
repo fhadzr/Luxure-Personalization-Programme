@@ -138,7 +138,7 @@ if ($id == 0){
   $product_name = "";
   $description = "";
   $gender = "men";
-  $cat = "top";
+  $cat = "hoodie";
   $price = "0";
   $is_new = "1";
 } else {
@@ -217,19 +217,40 @@ echo '                          </div>';
 echo '                          <div class="add-prod-cat add-prod-padding">';
 echo '                            <select name="edit-new-cat">';
 switch ($cat) {
-  case "pants":
-    echo '                              <option value="top">top</option>';
-    echo '                              <option value="shorts">shorts</option>';
-    echo '                              <option value="pants"selected>pants</option>';
+  case "longsleeve":
+    echo '                              <option value="hoodie">hoodie</option>';
+    echo '                              <option value="crewneck">crewneck</option>';
+    echo '                              <option value="longsleeve"selected>longsleeve</option>';
+    echo '                              <option value="crop longsleeve">crop longsleeve</option>';
+    echo '                              <option value="crop hoodie">crop hoodie</option>';
       break;
-  case "shorts":
-    echo '                              <option value="top">top</option>';
-    echo '                              <option value="shorts"selected>shorts</option>';
-    echo '                              <option value="pants">pants</option>';
-case "top":
-  echo '                              <option value="top"selected>top</option>';
-  echo '                              <option value="shorts">shorts</option>';
-  echo '                              <option value="pants">pants</option>';
+  case "crewneck":
+    echo '                              <option value="hoodie">hoodie</option>';
+    echo '                              <option value="crewneck"selected>crewneck</option>';
+    echo '                              <option value="longsleeve">longsleeve</option>';
+    echo '                              <option value="crop longsleeve">crop longsleeve</option>';
+    echo '                              <option value="crop hoodie">crop hoodie</option>';
+      break;
+case "hoodie":
+  echo '                              <option value="hoodie"selected>hoodie</option>';
+  echo '                              <option value="crewneck">crewneck</option>';
+  echo '                              <option value="longsleeve">longsleeve</option>';
+  echo '                              <option value="crop longsleeve">crop longsleeve</option>';
+  echo '                              <option value="crop hoodie">crop hoodie</option>';
+      break;
+case "crop longsleeve":
+  echo '                              <option value="hoodie">hoodie</option>';
+  echo '                              <option value="crewneck">crewneck</option>';
+  echo '                              <option value="longsleeve">longsleeve</option>';
+  echo '                              <option value="crop longsleeve"selected>crop longsleeve</option>';
+  echo '                              <option value="crop hoodie">crop hoodie</option>';
+      break;
+case "crop hoodie":
+  echo '                              <option value="hoodie">hoodie</option>';
+  echo '                              <option value="crewneck">crewneck</option>';
+  echo '                              <option value="longsleeve">longsleeve</option>';
+  echo '                              <option value="crop longsleeve">crop longsleeve</option>';
+  echo '                              <option value="crop hoodie"selected>crop hoodie</option>';
       break;
   default:
 }

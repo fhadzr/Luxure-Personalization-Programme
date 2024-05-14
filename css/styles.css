@@ -384,7 +384,7 @@ text-decoration: none;
   background-color: #f3f6f6;
 }
 .tab {
-  padding-right: 54%;
+  padding-right: 30%;
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
@@ -400,7 +400,7 @@ text-decoration: none;
 .tab button:hover {
   color: #f3f6f6;
   background-color: #3a8276;
-  box-shadow: 2px 2px 1px #214d4d;
+  box-shadow: 2px 2px 2px #214d4d;
 }
 
 .tab button.active {
@@ -411,7 +411,6 @@ text-decoration: none;
 .shop-content-grid {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
-  /* height: 450px; */
 }
 .shop-content {
   padding: 10px 14% 50px 14%;
@@ -430,7 +429,6 @@ text-decoration: none;
 .login-form {
   padding: 20px 30%;
   padding-top: 215px;
-  /* min-height: 470px; */
   min-height: 60vh;
 }
 

@@ -58,7 +58,7 @@ if (!isset($_SESSION)) session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Jim Outfitters</title>
+    <title>Sign Up | Luxure Personalization Programme</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="scripts/registration.js"></script>
 </head>

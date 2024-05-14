@@ -25,7 +25,7 @@ if (!isset($_SESSION["valid_admin"])){
     <div class="admin-page">
       <div class="admin-nav-col">
         <div class="admin-nav">
-          <h4>HELLO SUPERADMIN</h4>
+          <h4>HELLO ADMIN</h4>
           <div class="admin-nav-buttons">
             <button class="tablinks" onclick="openProducts(event, 'products')" id="defaultOpen">Products</button>
           </div>

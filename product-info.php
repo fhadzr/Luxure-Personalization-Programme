@@ -35,7 +35,7 @@ if (isset($_POST['add-to-cart'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>View Product | Jim Outfitters</title>
+    <title>View Product | Luxure Personalization Programme</title>
 
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
@@ -80,15 +80,17 @@ if(isset($_GET['id'])){
       $cat = $row['cat'];
 
       switch ($cat) {
-        case "top":
+        case "hoodie":
           $sizechart = "top.png";
             break;
-        case "pants":
-          $sizechart = "pants.png";
+        case "crewneck":
+          $sizechart = "top.png";
             break;
-        // ...
-        case "shorts":
-          $sizechart = "shorts.png";
+        case "longsleeve":
+          $sizechart = "top.png";
+            break;
+        case "crop longsleeve":
+          $sizechart = "top.png";
             break;
         default:
 

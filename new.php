@@ -9,7 +9,7 @@ if (!isset($_SESSION['cart'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>New | Jim Outfitters</title>
+    <title>New | Luxure Personalization Programme</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet'>
