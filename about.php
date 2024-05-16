@@ -21,7 +21,7 @@
           <img src="images/banners/Logo-1.jpg" alt="">
         </div>
         <div class="about-us">
-          <em><h4>your ultimate destination for premium apparel.</h4></em>
+          <em><h4>your ultimate Destination for Premium apparel</h4></em>
           <br><br><br><br><br>
           <div class="about-us-content">
             <div class="about-1-content">
