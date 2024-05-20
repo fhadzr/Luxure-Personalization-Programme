@@ -5,7 +5,6 @@ if (!isset($_SESSION["valid_admin"])){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
