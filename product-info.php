@@ -89,7 +89,7 @@ if(isset($_GET['id'])){
         case "longsleeve":
           $sizechart = "top.png";
             break;
-        case "crop longsleeve":
+        case "crop longsleeve": 
           $sizechart = "top.png";
             break;
         default:

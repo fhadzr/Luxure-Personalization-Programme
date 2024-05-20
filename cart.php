@@ -6,23 +6,26 @@ if (!isset($_SESSION['cart'])) {
   $_SESSION['cart'] = array();}
 require_once 'database.php';
 
-$product_data = array("0");
-$product_price = array("0");
-$product_img = array("0");
+$product_data = array();
+$product_price = array();
+$product_img = array();
 
 
 $sql = "SELECT product_id, img1, product_name, price from products";
 $result = mysqli_query($conn, $sql);
 
 while ($row = $result->fetch_assoc()) {
+    $product_id = $row['product_id'];
     $product_name = $row['product_name'];
     $price = $row['price'];
     $img1 = $row['img1'];
 
-    array_push($product_data, $product_name);
-    array_push($product_price, $price);
-    array_push($product_img, $img1);
+    $product_data[$product_id] = $product_name;
+    $product_price[$product_id] = $price;
+    $product_img[$product_id] = $img1;
 }
+
+
 
 // Delete Session Array Code
 if (isset($_GET['delete'])) {
@@ -120,7 +123,7 @@ echo '</script>';
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Cart | Jim Outfitters</title>
+    <title>Cart | Luxure Personalization Programme</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet'>
@@ -136,60 +139,53 @@ echo '</script>';
         <!-- first column -->
         <div class="cart-order-item">
 
-        <?php
+        <?php   
         $subtotal=0;
         $ship=0;
         $total=0;
     // Check if the cart is not empty
-    if (!empty($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $i => $cartItem) {
-            $itemKey = $cartItem['name'];
-            $ssubtotal = $cartItem['quantity'] * $product_price[$itemKey];
-
-            echo '<div class="cart-item">';
-            echo '    <div class="cart-item-img">';
-            echo '        <img src="images/products/' . $product_img[$itemKey] . '">';
-            echo '    </div>';
-            echo '    <div class="cart-item-name">';
-            echo '        <h6>' . $product_data[$itemKey] . '</h6>';
-            echo '    </div>';
-            echo '    <div class="cart-item-size">';
-            echo '        <h6>' . $cartItem['size'] . '</h6>';
-            echo '    </div>';
-            echo '    <div class="cart-item-qty">';
-            echo '        <h6> ' . $cartItem['quantity'] . ' </h6>';
-            echo '    </div>';
-            echo '    <div class="cart-item-price">';
-            echo '        <h6> $' . number_format($ssubtotal, 2) . ' </h6>';
-            echo '    </div>';
-            echo '    <div class="cart-delete">';
-            echo '        <a href="' . $_SERVER['PHP_SELF'] . '?delete=' . $i . '"><img src="images/bin-black.png" alt="Delete"></a>';
-            echo '    </div>';
-            echo '</div>';
-
-
-
-            $subtotal += $ssubtotal;
-
-            if ($subtotal<100){
-              $ship=5;
-            }
-            else {
-              $ship=0;
-            }
-            if ($subtotal==0){
-              $total=0;
-            }
-            else {
-              $total=$subtotal+$ship;
-            }
-
-
-        }
-    } else {
-        echo '<p>Your shopping cart is empty.</p>';
-
-    }
+    foreach ($_SESSION['cart'] as $i => $cartItem) {
+      $itemKey = $cartItem['name'];
+      if (isset($product_price[$itemKey])) {
+          $ssubtotal = $cartItem['quantity'] * $product_price[$itemKey];
+  
+          echo '<div class="cart-item">';
+          echo '    <div class="cart-item-img">';
+          echo '        <img src="images/products/' . $product_img[$itemKey] . '">';
+          echo '    </div>';
+          echo '    <div class="cart-item-name">';
+          echo '        <h6>' . $product_data[$itemKey] . '</h6>';
+          echo '    </div>';
+          echo '    <div class="cart-item-size">';
+          echo '        <h6>' . $cartItem['size'] . '</h6>';
+          echo '    </div>';
+          echo '    <div class="cart-item-qty">';
+          echo '        <h6> ' . $cartItem['quantity'] . ' </h6>';
+          echo '    </div>';
+          echo '    <div class="cart-item-price">';
+          echo '        <h6> $' . number_format($ssubtotal, 2) . ' </h6>';
+          echo '    </div>';
+          echo '    <div class="cart-delete">';
+          echo '        <a href="' . $_SERVER['PHP_SELF'] . '?delete=' . $i . '"><img src="images/bin-black.png" alt="Delete"></a>';
+          echo '    </div>';
+          echo '</div>';
+  
+          $subtotal += $ssubtotal;
+  
+          if ($subtotal < 100) {
+              $ship = 5;
+          } else {
+              $ship = 0;
+          }
+          if ($subtotal == 0) {
+              $total = 0;
+          } else {
+              $total = $subtotal + $ship;
+          }
+      } else {
+          echo '<p>Produk dengan ID ' . $itemKey . ' tidak ditemukan.</p>';
+      }
+  }  
 
       echo '    </div>';
 

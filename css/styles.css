@@ -216,12 +216,6 @@ body {
   flex-direction: column;
 }
 
-/* .test{
-  display: flex;
-  flex-direction: column;
-} */
-
-
 footer {
   background-color: #214d4d;
   height: 80px;
