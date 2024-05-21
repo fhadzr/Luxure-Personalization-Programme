@@ -18,7 +18,7 @@
     <div class="about">
       <div class="about-content">
         <div class="logo-strip">
-          <img src="images/banners/Logo-1.jpg" alt="">
+          <img src="images/banners/LuxurePersonalizationProgramme.png" alt="">
         </div>
         <div class="about-us">
           <em><h4>your ultimate Destination for Premium apparel</h4></em>
