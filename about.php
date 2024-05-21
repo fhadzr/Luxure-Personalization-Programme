@@ -30,11 +30,11 @@
               <h6>Dengan koleksi pakaian berkualitas tinggi dan desain yang dipersonalisasi, kami menghadirkan pengalaman berbelanja yang unik dan memuaskan bagi setiap pelanggan kami.</h6></em>
             </div>
             <div class="about-1-content">
-              <img src="images/about/about-1.png" alt="">
+              <img src="images/about/aboutatas.png" alt="">
               <br><br><br><br><br><br>
             </div>
             <div class="about-2-content">
-              <img src="images/about/about-2.png" alt="">
+              <img src="images/about/abouttengah.png" alt="">
               <br><br><br><br><br><br>
             </div>
             <div class="about-2-content">
@@ -48,7 +48,7 @@
               <h6>Jelajahi koleksi kami, temukan inspirasi baru, dan buatlah pernyataan fashion Anda sendiri dengan Luxure Personalization Programme. Sambut gaya hidup Anda dengan gaya, kenyamanan, dan keindahan yang tak tertandingi.</h6></em>
             </div>
             <div class="about-3-content">
-              <img src="images/about/about-3.png" alt="">
+              <img src="images/about/aboutbawah.png" alt="">
               <br><br>
               <br><br><br>
             </div>
