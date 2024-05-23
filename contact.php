@@ -30,20 +30,29 @@
             <div class="photo-contact">
               <div class="contact-item">
                 <a href="https://www.instagram.com/azharrfadd?igsh=eGl3bzhreW14M2hq" target="_blank">
-                  <img src="images/contact/azhar (1).jpg" alt="Azhar Albaaqi Fadhullah">
+                  <img src="images/contact/azhar.png" alt="Azhar Albaaqi Fadhullah">
                     <h6>Azhar Albaaqi Fadhullah</h6>
                 </a>
               </div>
               <div class="contact-item">
                 <a href="https://www.instagram.com/dappkon?igsh=MW8wcXdzbDdnMjI5NA==" target="_blank">
-                  <img src="images/contact/dapkon.jpg" alt="Daffa Maulana Ibrahim">
+                  <img src="images/contact/daffa.png" alt="Daffa Maulana Ibrahim">
                     <h6>Daffa Maulana Ibrahim</h6>
                 </a>
               </div>
+              <div class="contact-item">
+                <a href="https://www.instagram.com/dappkon?igsh=MW8wcXdzbDdnMjI5NA==" target="_blank">
+                  <img src="images/contact/faiz.png" alt="Daffa Maulana Ibrahim">
+                    <h6>Fairuz Ihda Fawwaiz</h6>
+                </a>
+              </div>
+              <div class="contact-item">
+                <a href="https://www.instagram.com/dappkon?igsh=MW8wcXdzbDdnMjI5NA==" target="_blank">
+                  <img src="images/contact/prakasha.png" alt="Daffa Maulana Ibrahim">
+                    <h6>Prakasha Yazidka Basakara Putra</h6>
+                </a>
+              </div>
             </div>
-            <h6>Fairuz Ihda Fawwaiz</h6>
-            <h6>Prakasha Yazidka Baskara Putra</h6>
-            <h6>Daffa Maulana Ibrahim</h6>
             <br>
             <h4>or give us a call!</h4>
             <h6>+65 98765432</h6>
