@@ -32,7 +32,7 @@ if (!isset($_SESSION['cart'])) {
           <!-- edit file name to link here -->
           <div class="carousel-item">
               <div class="slide-image"
-                  style="background-image: url('images/banners/Banner-2.jpg');">
+                  style="background-image: url('images/banners/slide1.png">
               </div>
           </div>
         </a>
@@ -40,7 +40,7 @@ if (!isset($_SESSION['cart'])) {
         <a href="women.php">
           <!-- edit file name to link here -->
           <div class="carousel-item">
-              <div class="slide-image" style="background-image: url('images/banners/Banner-3.jpg');">
+              <div class="slide-image" style="background-image: url('images/banners/slide2.png');">
               </div>
           </div>
         </a>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['cart'])) {
           <!-- edit file name to link here -->
           <div class="carousel-item">
               <div class="slide-image"
-                  style="background-image: url('images/banners/Banner-4.jpg');">
+                  style="background-image: url('images/banners/slide3.png');">
               </div>
           </div>
         </a>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['cart'])) {
         </div>
       </div>
     </div>
-    <div class="best-banner" style="background-image: url('images/banners/best-banner.png');" >
+    <div class="best-banner" style="background-image: url('images/banners/bannerbawah.png');" >
     </div>
     <div class="home-prod-strip">
       <div class="home-prod-content">
