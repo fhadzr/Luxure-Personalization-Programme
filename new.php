@@ -26,7 +26,7 @@ if (!isset($_SESSION['cart'])) {
       <?php include "header.php"?>
     </header>
     <div class="new-shop">
-      <div class="new-page-banner" style="background-image: url('images/banners/Banner-1.JPG');"  >
+      <div class="new-page-banner" style="background-image: url('images/banners/bannernew.png');"  >
       </div>
       <div class="new-shop-content">
 
