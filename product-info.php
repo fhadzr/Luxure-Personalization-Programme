@@ -120,7 +120,7 @@ echo '     <img src="images/products/' . $img4 . '" id="img-3" onclick="expandIm
 echo '   </div> ';
 
 
-echo '     </div> ';
+echo '     </div> '; 
 echo '   </div> ';
 
 echo ' <div class=""></div>';

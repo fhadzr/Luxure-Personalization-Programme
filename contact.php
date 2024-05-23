@@ -28,10 +28,18 @@
             <br><br><br>
             <h4>Our Instagram!</h4>
             <div class="photo-contact">
-              <a href="https://www.instagram.com/azharrfadd?igsh=eGl3bzhreW14M2hq" target="_blank">
-                <img src="images/contact/azhar (1).jpg" alt="">
-                <h6>Azhar Albaaqi Fadhullah</h6>
-              </a>
+              <div class="contact-item">
+                <a href="https://www.instagram.com/azharrfadd?igsh=eGl3bzhreW14M2hq" target="_blank">
+                  <img src="images/contact/azhar (1).jpg" alt="Azhar Albaaqi Fadhullah">
+                    <h6>Azhar Albaaqi Fadhullah</h6>
+                </a>
+              </div>
+              <div class="contact-item">
+                <a href="https://www.instagram.com/dappkon?igsh=MW8wcXdzbDdnMjI5NA==" target="_blank">
+                  <img src="images/contact/dapkon.jpg" alt="Daffa Maulana Ibrahim">
+                    <h6>Daffa Maulana Ibrahim</h6>
+                </a>
+              </div>
             </div>
             <h6>Fairuz Ihda Fawwaiz</h6>
             <h6>Prakasha Yazidka Baskara Putra</h6>
@@ -40,9 +48,6 @@
             <h4>or give us a call!</h4>
             <h6>+65 98765432</h6>
           </div>
-        </div>
-        <div class="contact-2">
-          <img src="images/contact.png" alt="">
         </div>
       </div>
     </div>
