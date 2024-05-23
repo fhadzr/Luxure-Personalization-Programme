@@ -16,7 +16,7 @@
     </header>
     <div class="contact">
       <div class="logo-strip">
-        <img src="images/banners/Logo-2.png" alt="">
+        <img src="images/banners/LuxurePersonalizationProgramme.png" alt="">
       </div>
       <div class="contact-content">
         <div class="contact-1">
