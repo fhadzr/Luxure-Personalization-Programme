@@ -41,13 +41,13 @@
                 </a>
               </div>
               <div class="contact-item">
-                <a href="https://www.instagram.com/dappkon?igsh=MW8wcXdzbDdnMjI5NA==" target="_blank">
+                <a href="https://www.instagram.com/fawwaiz_?igsh=MTczaHp0OGNhYzRwYw==" target="_blank">
                   <img src="images/contact/faiz.png" alt="Daffa Maulana Ibrahim">
                     <h6>Fairuz Ihda Fawwaiz</h6>
                 </a>
               </div>
               <div class="contact-item">
-                <a href="https://www.instagram.com/dappkon?igsh=MW8wcXdzbDdnMjI5NA==" target="_blank">
+                <a href="https://www.instagram.com/fasabaskara?igsh=aTZqMW1tNGl6bnBt" target="_blank">
                   <img src="images/contact/prakasha.png" alt="Daffa Maulana Ibrahim">
                     <h6>Prakasha Yazidka Basakara Putra</h6>
                 </a>
