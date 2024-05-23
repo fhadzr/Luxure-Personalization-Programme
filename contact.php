@@ -23,11 +23,19 @@
           <div class="contact-us">
             <h2>Contact Us</h2>
             <br><br>
-            <h6>We'd love to hear from you!</h6>
-            <h6>If you loved our styles, if you have enquiries, if you have suggestions, or if you would simply like to have a chat with us.</h6>
+            <h6>Kami sangat menghargai masukan dari kalian!</h6>
+            <h6>Jika kalian ingin memberi masukan dan saran maka kalian dapat menghubungi kami yang ada disini!</h6>
             <br><br><br>
-            <h4>Drop us an email!</h4>
-            <h6>admin@localhost</h6>
+            <h4>Our Instagram!</h4>
+            <div class="photo-contact">
+              <a href="https://www.instagram.com/azharrfadd?igsh=eGl3bzhreW14M2hq" target="_blank">
+                <img src="images/contact/azhar (1).jpg" alt="">
+                <h6>Azhar Albaaqi Fadhullah</h6>
+              </a>
+            </div>
+            <h6>Fairuz Ihda Fawwaiz</h6>
+            <h6>Prakasha Yazidka Baskara Putra</h6>
+            <h6>Daffa Maulana Ibrahim</h6>
             <br>
             <h4>or give us a call!</h4>
             <h6>+65 98765432</h6>
