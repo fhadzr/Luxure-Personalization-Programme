@@ -15,10 +15,6 @@ if (!isset($_SESSION['cart'])) {
     <link href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet'>
 
     <script src="scripts/productTabs.js"></script>
-    <!-- <script>
-      document.getElementById("defaultOpen").click();
-    </script> -->
-
   </head>
 
   <body>

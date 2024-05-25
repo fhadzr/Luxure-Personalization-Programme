@@ -556,6 +556,9 @@ text-decoration: none;
   padding: 5px 15px;
   width: 30px;
 }
+.prod-form-upload {
+  padding-bottom: 15px;
+}
 .add-cart-button input {
   width: 100%;
   font-family: 'Nunito', Arial, sans-serif;

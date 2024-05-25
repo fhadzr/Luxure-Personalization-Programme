@@ -13,20 +13,60 @@ if (isset($_POST['add-to-cart'])) {
       $size = htmlspecialchars($_POST['size']);
       $quantity = (int)$_POST['quantity'];
 
+      // Handle file upload
+      if (isset($_FILES['custom_image']) && $_FILES['custom_image']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['custom_image']['tmp_name'];
+        $fileName = $_FILES['custom_image']['name'];
+        $fileSize = $_FILES['custom_image']['size'];
+        $fileType = $_FILES['custom_image']['type'];
+        $fileNameCmps = explode(".", $fileName);
+        $fileExtension = strtolower(end($fileNameCmps));
+
+        // Sanitize file name and prepare destination
+        $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+        $uploadFileDir = './uploads/';
+        $dest_path = $uploadFileDir . $newFileName;
+
+        // Allow only specific file types
+        $allowedfileExtensions = array('jpg', 'jpeg', 'png');
+        if (in_array($fileExtension, $allowedfileExtensions)) {
+            if (move_uploaded_file($fileTmpPath, $dest_path)) {
+                $custom_image = $newFileName;
+            } else {
+                $custom_image = null;
+                echo 'Error moving the uploaded file.';
+            }
+        } else {
+            $custom_image = null;
+            echo 'Upload failed. Allowed file types: ' . implode(', ', $allowedfileExtensions);
+        }
+      } else {
+        $custom_image = null;
+      }
+    // Save to database
+    require_once 'database.php';
+    $product_name_escaped = mysqli_real_escape_string($conn, $product_name);
+    $size_escaped = mysqli_real_escape_string($conn, $size);
+    $custom_image_escaped = mysqli_real_escape_string($conn, $custom_image);
+
+    $sql = "INSERT INTO cart_item (product_name, size, quantity, custom_image) VALUES ('$product_name_escaped', '$size_escaped', '$quantity', '$custom_image_escaped')";
+    if (mysqli_query($conn, $sql)) {
       // Create an item array
       $item = array(
-          'name' => $product_name,
-          'size' => $size,
-          'quantity' => $quantity
+        'name' => $product_name,
+        'size' => $size,
+        'quantity' => $quantity
       );
 
       // Add the item to the cart
       $_SESSION['cart'][] = $item;
 
-      echo '<script type="text/javascript"> ';
-      echo 'alert("Item Added!");';
-      echo 'window.location.href = "product-info.php?id='.$id.'";';
-      echo '</script>';
+      // Redirect to the cart page
+      header('Location: cart.php');
+      exit;
+    } else {
+      echo "Error: " .$sql ."<br>" . mysqli_error($conn);
+    }
   }
 }
 ?>
@@ -70,35 +110,35 @@ if(isset($_GET['id'])){
   if ($result) {
     // Assuming you want to loop through the results
     while ($row = $result->fetch_assoc()) {
-      $product_name = $row['product_name'];
-      $img1 = $row['img1'];
-      $img2 = $row['img2'];
-      $img3 = $row['img3'];
-      $img4 = $row['img4'];
-      $description = $row['description'];
-      $price = $row['price'];
-      $cat = $row['cat'];
+        $product_name = $row['product_name'];
+        $img1 = $row['img1']; 
+        $img2 = $row['img2'];
+        $img3 = $row['img3'];
+        $img4 = $row['img4'];
+        $description = $row['description'];
+        $price = $row['price'];
+        $cat = $row['cat'];
 
-      switch ($cat) {
-        case "hoodie":
-          $sizechart = "top.png";
-            break;
-        case "crewneck":
-          $sizechart = "top.png";
-            break;
-        case "longsleeve":
-          $sizechart = "top.png";
-            break;
-        case "crop longsleeve": 
-          $sizechart = "top.png";
-            break;
-        default:
-
+        switch ($cat) {
+            case "hoodie":
+                $sizechart = "top.png";
+                break;
+            case "crewneck":
+                $sizechart = "top.png";
+                break;
+            case "longsleeve":
+                $sizechart = "top.png";
+                break;
+            case "crop longsleeve": 
+                $sizechart = "top.png";
+                break;
+            default:
+        }
     }
-    }
-  } else {
+} else {
     echo "Error in the SQL query: " . mysqli_error($conn);
-  }
+}
+
 }
 
 
@@ -131,7 +171,7 @@ echo ' <div class=""></div>';
 
           // Start of Form
           echo ' <div class="product-form">';
-          echo ' <form class="" action="' . 'product-info.php?id='.$product_id . '" method="post">';
+          echo ' <form class="" action="product-info.php?id=<?php echo $product_id; ?>" method="post" enctype="multipart/form-data">';
           echo '<input type="hidden" id="product_name" name="product_name" value="'.$product_id.'">';
               echo ' <div class="prod-form-size">';
                 echo ' <label for="size">Select Size:</label>';
@@ -145,6 +185,11 @@ echo ' <div class=""></div>';
                 echo ' <label for="qty">Quantity:</label>';
                 echo ' <input type="number" name="quantity" value="1" min="1" max="99">';
               echo '</div>';
+              echo ' <div class="prod-form-upload">';
+                echo ' <label for="custom_image">Upload Custom Image:</label>';
+                echo ' <input type="file" name="custom_image" accept="image/png, image/jpeg">';
+              echo '</div>';
+              
               echo ' <div class="add-cart-button">';
                 echo ' <input type = "submit" name = "add-to-cart" value="Add to Cart" placeholder="ADD TO CART">';
               echo' </div>';
