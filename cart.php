@@ -55,66 +55,99 @@ if (mysqli_stmt_prepare($stmt, $sql)) {
 
 $order_date = date('Y-m-d', time());
 
-if (isset($_POST['checkoutBtn'])){
-  if (!empty($_SESSION['cart'])) {
-  if (isset($_SESSION["valid_user"]) && !empty($_SESSION["valid_user"])) {
-  $total = $_POST["total"];
-  $email = $_SESSION["valid_user"];
-    // Insert an order into the "orders" table
-    $sql = 'INSERT INTO orders (customer_id, order_date,order_total) VALUES (?,?,?)';
-    $stmt = mysqli_stmt_init($conn);
+if (isset($_POST['checkoutBtn'])) {
+    if (!empty($_SESSION['cart'])) {
+        if (isset($_SESSION["valid_user"]) && !empty($_SESSION["valid_user"])) {
+            $total = $_POST["total"];
+            $email = $_SESSION["valid_user"];
+            // Insert an order into the "orders" table
+            $sql = 'INSERT INTO orders (customer_id, order_date, order_total) VALUES (?,?,?)';
+            $stmt = mysqli_stmt_init($conn);
 
-    if (mysqli_stmt_prepare($stmt, $sql)) {
-        mysqli_stmt_bind_param($stmt, "ssd", $customer_id, $order_date, $total);
-        mysqli_stmt_execute($stmt);
-
-        $order_id = mysqli_insert_id($conn);
-
-        $sql = 'INSERT INTO order_details (order_id, product_id, item_size, quantity, subtotal) VALUES (?, ?, ?, ?, ?)';
-        $stmt = mysqli_stmt_init($conn);
-
-        if (mysqli_stmt_prepare($stmt, $sql)) {
-            foreach ($_SESSION['cart'] as $cartItem) {
-                $product_id = $cartItem['name'];
-                $size = $cartItem['size'];
-                $quantity = $cartItem['quantity'];
-                $subtotal = $product_price[$product_id] * $quantity;
-
-
-                mysqli_stmt_bind_param($stmt, "iissd", $order_id, $product_id, $size, $quantity, $subtotal);
+            if (mysqli_stmt_prepare($stmt, $sql)) {
+                mysqli_stmt_bind_param($stmt, "ssd", $customer_id, $order_date, $total);
                 mysqli_stmt_execute($stmt);
 
-              }
-              include 'mail.php';
-                  unset($_SESSION["cart"]);
-                  echo '<script type="text/javascript"> ';
-                  echo ' if (confirm("Payment Success! Continue shopping?")) {';
-                  echo '    window.location.href = "index.php";';
-                  echo ' }';
-                  echo '</script>';
-                  exit();
+                $order_id = mysqli_insert_id($conn);
 
+                $sql = 'INSERT INTO order_details (order_id, product_id, item_size, quantity, subtotal, custom_image) VALUES (?, ?, ?, ?, ?, ?)';
+                $stmt = mysqli_stmt_init($conn);
+
+                if (mysqli_stmt_prepare($stmt, $sql)) {
+                    foreach ($_SESSION['cart'] as $cartItem) {
+                        $product_id = $cartItem['name'];
+                        $size = $cartItem['size'];
+                        $quantity = $cartItem['quantity'];
+                        $subtotal = $product_price[$product_id] * $quantity;
+                        $custom_image = $cartItem['custom_image'];
+
+                        echo "Product ID: " . $product_id . "<br>";
+                        echo "Size: " . $size . "<br>";
+                        echo "Quantity: " . $quantity . "<br>";
+                        echo "Subtotal: " . $subtotal . "<br>";
+                        echo "Custom Image: " . $custom_image . "<br>";
+
+                        mysqli_stmt_bind_param($stmt, "iissds", $order_id, $product_id, $size, $quantity, $subtotal, $custom_image);
+                        mysqli_stmt_execute($stmt);
+                    }
+                    include 'index.php';
+                    unset($_SESSION["cart"]);
+                    echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+                    echo '<script type="text/javascript">';
+                    echo 'Swal.fire({';
+                    echo '    title: "Payment Success!",';
+                    echo '    text: "Continue shopping?",';
+                    echo '    icon: "success",';
+                    echo '    showCancelButton: true,';
+                    echo '    confirmButtonText: "Yes",';
+                    echo '    cancelButtonText: "No"';
+                    echo '}).then((result) => {';
+                    echo '    if (result.isConfirmed) {';
+                    echo '        window.location.href = "index.php";';
+                    echo '    }';
+                    echo '});';
+                    echo '</script>';
+                    exit();
+                }
             }
-        }
 
-    // Don't forget to close the statement and connection when you're done
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
+            // Don't forget to close the statement and connection when you're done
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+        } else {
+            echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+            echo '<script type="text/javascript">';
+            echo 'Swal.fire({';
+            echo '    title: "Please login to make payment",';
+            echo '    icon: "warning",';
+            echo '    showCancelButton: true,';
+            echo '    confirmButtonText: "Login",';
+            echo '    cancelButtonText: "Cancel"';
+            echo '}).then((result) => {';
+            echo '    if (result.isConfirmed) {';
+            echo '        window.location.href = "login.php";';
+            echo '    }';
+            echo '});';
+        }
+    } else {
+        echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+        echo '<script type="text/javascript">';
+        echo 'Swal.fire({';
+        echo '    title: "Your cart is empty!",';
+        echo '    text: "Let\'s add some items",';
+        echo '    icon: "info",';
+        echo '    showCancelButton: true,';
+        echo '    confirmButtonText: "Go to shop",';
+        echo '    cancelButtonText: "Stay here"';
+        echo '}).then((result) => {';
+        echo '    if (result.isConfirmed) {';
+        echo '        window.location.href = "index.php";';
+        echo '    }';
+        echo '});';
+    }
 }
-else {
-  echo '<script type="text/javascript"> ';
-  echo ' if (confirm("Please login to make payment ")) {';
-  echo '    window.location.href = "login.php";';
-  echo ' }';
-  echo '</script>';
-}
-}
-echo '<script type="text/javascript"> ';
-echo ' if (confirm("Your cart is empty! Let\'s add some items")) {';
-echo '    window.location.href = "index.php";';
-echo ' }';
-echo '</script>';
-}
+?>
+
 
 ?>
 
@@ -127,6 +160,12 @@ echo '</script>';
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet'>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+
   </head>
 
   <body>

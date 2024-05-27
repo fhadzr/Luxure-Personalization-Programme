@@ -24,7 +24,7 @@ if (isset($_POST['add-to-cart'])) {
 
         // Sanitize file name and prepare destination
         $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-        $uploadFileDir = './uploads/';
+        $uploadFileDir = 'images/uploads/';
         $dest_path = $uploadFileDir . $newFileName;
 
         // Allow only specific file types
@@ -32,6 +32,7 @@ if (isset($_POST['add-to-cart'])) {
         if (in_array($fileExtension, $allowedfileExtensions)) {
             if (move_uploaded_file($fileTmpPath, $dest_path)) {
                 $custom_image = $newFileName;
+                echo "File uploaded successfully: " . $custom_image . "<br>";
             } else {
                 $custom_image = null;
                 echo 'Error moving the uploaded file.';
@@ -42,12 +43,18 @@ if (isset($_POST['add-to-cart'])) {
         }
       } else {
         $custom_image = null;
+        echo 'No file uploaded or upload error.<br>';
       }
     // Save to database
     require_once 'database.php';
     $product_name_escaped = mysqli_real_escape_string($conn, $product_name);
     $size_escaped = mysqli_real_escape_string($conn, $size);
-    $custom_image_escaped = mysqli_real_escape_string($conn, $custom_image);
+    $custom_image_escaped = $custom_image ? mysqli_real_escape_string($conn, $custom_image) : null;
+
+    // Debug output
+    echo "Product Name: " . $product_name_escaped . "<br>";
+    echo "Size: " . $size_escaped . "<br>";
+    echo "Custom Image: " . $custom_image_escaped . "<br>";
 
     $sql = "INSERT INTO cart_item (product_name, size, quantity, custom_image) VALUES ('$product_name_escaped', '$size_escaped', '$quantity', '$custom_image_escaped')";
     if (mysqli_query($conn, $sql)) {
@@ -55,8 +62,11 @@ if (isset($_POST['add-to-cart'])) {
       $item = array(
         'name' => $product_name,
         'size' => $size,
-        'quantity' => $quantity
+        'quantity' => $quantity,
+        'custom_image' => $custom_image
       );
+
+      print_r($item);
 
       // Add the item to the cart
       $_SESSION['cart'][] = $item;
@@ -187,7 +197,7 @@ echo ' <div class=""></div>';
               echo '</div>';
               echo ' <div class="prod-form-upload">';
                 echo ' <label for="custom_image">Upload Custom Image:</label>';
-                echo ' <input type="file" name="custom_image" accept="image/png, image/jpeg">';
+                echo ' <input type="file" name="custom_image" accept="image/png, image/jpeg, image/jpg">';
               echo '</div>';
               
               echo ' <div class="add-cart-button">';

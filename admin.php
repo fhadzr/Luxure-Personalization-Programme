@@ -213,6 +213,7 @@ if (!isset($_SESSION["valid_admin"])){
                 echo '<p>Size</p>';
                 echo '<p>Quantity</p>';
                 echo '<p>Price</p>';
+                echo '<p>Custom Image</p>';
                 echo '</div>';
 
                 $sql = "SELECT * FROM order_details WHERE order_id = $order_id";
@@ -222,6 +223,7 @@ if (!isset($_SESSION["valid_admin"])){
                   $item_size = $row['item_size'];
                   $quantity = $row['quantity'];
                   $subtotal = $row['subtotal'];
+                  $custom_image = $row['custom_image'];  // Fetch custom image
 
                   echo '</div>';
                   echo '<div class="admin-order-details">';
@@ -237,6 +239,9 @@ if (!isset($_SESSION["valid_admin"])){
                   echo '</div>';
                   echo '<div class="order-detail-subtotal order-detail-padding">';
                   echo '<p>$'.$subtotal.'</p>';
+                  echo '</div>';
+                  echo '<div class="order-detail-custom-image order-detail-padding">';
+                  echo '<img src="images/uploads/'.$custom_image.'" alt="Custom Image">';
                   echo '</div>';
                   echo '</div>';
                 }
