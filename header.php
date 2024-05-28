@@ -1,7 +1,7 @@
 <?php
 echo '    <div class="promo-strip">';
 echo '      <div class="scroll-text">';
-echo '        <b> Website belum jadi sabar dulu yaaa :)</b>';
+echo '        <b> Wujudkan Gaya Elegan dan Mewah yang Unik Untukmu Lebih dari Sekedar Pakaian </b>';
 echo '      </div>';
 echo '    </div>';
 echo '    <div class="nav-bar">';
