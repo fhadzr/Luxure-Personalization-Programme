@@ -42,7 +42,7 @@ if (isset($_POST["login"])) {
             }
           } else {
               echo '<script type="text/javascript"> ';
-              echo ' if (confirm("Incorrect Username/Password")) {';
+              echo ' if (confirm("Incorrect Email/Password")) {';
               echo '    window.location.href = "login.php";';
               echo ' }';
               echo '</script>';
